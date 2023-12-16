@@ -12,7 +12,12 @@ import TextArea from "../components/TextArea";
 
 const Resume = () => {
   const dispatch = useDispatch();
-  const initialState = { title: "", year: "", description: "" };
+  const initialState = {
+    title: "",
+    startDate: "",
+    endDate: "",
+    description: "",
+  };
   const initialProjects = {
     title: "",
     startDate: "",
@@ -174,7 +179,7 @@ const Resume = () => {
   return (
     <>
       <BackButton />
-      <div className="p-6 max-w-lg mx-auto">
+      <div className="p-6 w-full mx-auto">
         <h1 className="text-center">Add Resume</h1>
         <form onSubmit={handleSubmit} className=" p-6">
           <div className="flex md:flex-row flex-col  gap-9">
@@ -246,11 +251,19 @@ const Resume = () => {
                       }
                     />
                     <InputField
-                      label="Year"
-                      type="number"
-                      value={academic.year || ""}
+                      label="Start Date"
+                      type="date"
+                      value={academic.startDate || ""}
                       onChange={(value) =>
-                        handleChange("academics", index, "year", value)
+                        handleChange("academics", index, "startDate", value)
+                      }
+                    />
+                    <InputField
+                      label="End Date"
+                      type="date"
+                      value={academic.endDate || ""}
+                      onChange={(value) =>
+                        handleChange("academics", index, "endDate", value)
                       }
                     />
                     <TextArea
@@ -284,11 +297,19 @@ const Resume = () => {
                     }
                   />
                   <InputField
-                    label="Year"
-                    type="number"
-                    value={experience.year || ""}
+                    label="Start Date"
+                    type="date"
+                    value={experience.startDate || ""}
                     onChange={(value) =>
-                      handleChange("experiences", index, "year", value)
+                      handleChange("experiences", index, "startDate", value)
+                    }
+                  />
+                  <InputField
+                    label="End Date"
+                    type="date"
+                    value={experience.endDate || ""}
+                    onChange={(value) =>
+                      handleChange("experiences", index, "endDate", value)
                     }
                   />
                   <TextArea
@@ -310,6 +331,7 @@ const Resume = () => {
 
             {/* Add Projects Section */}
             <div>
+              <h1>Projects</h1>
               {formData.projects.map((project, index) => (
                 <div key={index}>
                   <InputField
@@ -361,6 +383,7 @@ const Resume = () => {
             {/* Add Projects Section end*/}
             {/* Add skils section */}
             <div>
+              <h1>Skills</h1>
               {formData.skills.map((skill, index) => (
                 <div key={index}>
                   <InputField
