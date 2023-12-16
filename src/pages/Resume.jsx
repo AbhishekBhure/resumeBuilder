@@ -1,0 +1,370 @@
+import React, { useState } from "react";
+import BackButton from "../components/BackButton";
+import InputField from "../components/InputField";
+import { useDispatch } from "react-redux";
+import {
+  addResumeFailure,
+  addResumeStart,
+  addResumeSuccess,
+} from "../redux/resume/resumeSlice";
+import AddItemBtn from "../components/AddItemBtn";
+import TextArea from "../components/TextArea";
+
+const Resume = () => {
+  const dispatch = useDispatch();
+  const initialState = { title: "", year: "", description: "" };
+  const initialProjects = {
+    title: "",
+    startDate: "",
+    endDate: "",
+    url: "",
+    description: "",
+  };
+  const [formData, setFormData] = useState({
+    profile: {
+      name: "",
+      currentDesignation: "",
+      location: "",
+      email: "",
+      phone: "",
+      website: "",
+    },
+    aboutMe: "",
+    academics: [initialState],
+    experiences: [initialState],
+    projects: [initialProjects],
+    skills: [],
+  });
+
+  console.log(formData);
+
+  //   const handleChange = (section, index, field, value) => {
+  //     setFormData((prevData) => ({
+  //       ...prevData,
+  //       [section]: Array.isArray(prevData[section])
+  //         ? prevData[section].map((item, i) =>
+  //             i === index ? { ...item, [field]: value } : item
+  //           )
+  //         : { ...prevData[section], [field]: value },
+  //     }));
+  //   };
+
+  const handleChange = (section, index, field, value) => {
+    setFormData((prevData) => {
+      if (Array.isArray(prevData[section])) {
+        return {
+          ...prevData,
+          [section]: prevData[section].map((item, i) =>
+            i === index ? { ...item, [field]: value } : item
+          ),
+        };
+      } else if (typeof prevData[section] === "object") {
+        return {
+          ...prevData,
+          [section]: {
+            ...prevData[section],
+            [field]: value,
+          },
+        };
+      } else {
+        // For non-array and non-object fields
+        return {
+          ...prevData,
+          [section]: value,
+        };
+      }
+    });
+  };
+
+  const handleAddItem = (section) => {
+    let newItem;
+    switch (section) {
+      case "academics":
+        newItem = initialState;
+        break;
+      case "experiences":
+        newItem = initialState;
+        break;
+      case "projects":
+        newItem = initialProjects;
+        break;
+      default:
+        newItem = {};
+    }
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [section]: [...prevData[section], newItem],
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(addResumeStart());
+    // Filter out empty objects before submitting
+    const filteredData = {
+      ...formData,
+      academics: formData.academics.filter(
+        (academic) => academic.title || academic.year || academic.description
+      ),
+      experiences: formData.experiences.filter(
+        (experience) =>
+          experience.title || experience.year || experience.description
+      ),
+      projects: formData.projects.filter(
+        (project) =>
+          project.title ||
+          project.startDate ||
+          project.endDate ||
+          project.url ||
+          project.description
+      ),
+    };
+    try {
+      const res = await fetch("/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(filteredData),
+      });
+      if (res.ok) {
+        const newResume = await res.json();
+
+        dispatch(addResumeSuccess(newResume));
+        setFormData({
+          profile: {
+            name: "",
+            currentDesignation: "",
+            location: "",
+            email: "",
+            phone: "",
+            website: "",
+          },
+          aboutMe: "",
+          academics: [
+            {
+              title: "",
+              year: "",
+              description: "",
+            },
+          ],
+          experiences: [
+            {
+              title: "",
+              year: "",
+              description: "",
+            },
+          ],
+          projects: [],
+          skills: [],
+        });
+      } else {
+        dispatch(addResumeFailure("Failed to add new resume"));
+      }
+    } catch (error) {
+      dispatch(addResumeFailure("Error while adding the data"));
+    }
+  };
+  return (
+    <>
+      <BackButton />
+      <div className="p-6 max-w-lg mx-auto">
+        <h1 className="text-center">Add Resume</h1>
+        <form onSubmit={handleSubmit} className=" p-6">
+          <div className="flex md:flex-row flex-col  gap-9">
+            <div className="flex flex-col gap-4">
+              {/* Profile Section */}
+              <InputField
+                label="Name"
+                type="text"
+                value={formData.profile.name}
+                onChange={(value) =>
+                  handleChange("profile", null, "name", value)
+                }
+              />
+              <InputField
+                label="Curren Designation"
+                type="text"
+                value={formData.profile.currentDesignation}
+                onChange={(value) =>
+                  handleChange("profile", null, "currentDesignation", value)
+                }
+              />
+              <InputField
+                label="Location"
+                type="text"
+                value={formData.profile.location}
+                onChange={(value) =>
+                  handleChange("profile", null, "location", value)
+                }
+              />
+              <InputField
+                label="Email"
+                type="email"
+                required
+                value={formData.profile.email}
+                onChange={(value) =>
+                  handleChange("profile", null, "email", value)
+                }
+              />
+              <InputField
+                label="Phone No."
+                type="tel"
+                value={formData.profile.phone}
+                onChange={(value) =>
+                  handleChange("profile", null, "phone", value)
+                }
+              />
+              {/* Profile section end */}
+              {/* About Me Section */}
+              <TextArea
+                label="About Me"
+                value={formData.aboutMe}
+                onChange={(value) =>
+                  handleChange("aboutMe", null, "aboutMe", value)
+                }
+              />
+              {/* About Me Section end */}
+
+              {/* Academics Section */}
+              <div>
+                <h1>Academics</h1>
+                {formData.academics.map((academic, index) => (
+                  <div key={index}>
+                    <InputField
+                      label="Title"
+                      type="text"
+                      value={academic.title || ""}
+                      onChange={(value) =>
+                        handleChange("academics", index, "title", value)
+                      }
+                    />
+                    <InputField
+                      label="Year"
+                      type="number"
+                      value={academic.year || ""}
+                      onChange={(value) =>
+                        handleChange("academics", index, "year", value)
+                      }
+                    />
+                    <TextArea
+                      label="Description"
+                      value={academic.description || ""}
+                      onChange={(value) =>
+                        handleChange("academics", index, "description", value)
+                      }
+                    />
+                  </div>
+                ))}
+                <AddItemBtn
+                  label="Add Academics"
+                  onClick={() => handleAddItem("academics")}
+                />
+              </div>
+              {/* Academics Section end */}
+            </div>
+
+            {/* Add Expreience Section */}
+            <div>
+              <h1>Experience</h1>
+              {formData.experiences.map((experience, index) => (
+                <div key={index}>
+                  <InputField
+                    label="Title"
+                    type="text"
+                    value={experience.title || ""}
+                    onChange={(value) =>
+                      handleChange("experiences", index, "title", value)
+                    }
+                  />
+                  <InputField
+                    label="Year"
+                    type="number"
+                    value={experience.year || ""}
+                    onChange={(value) =>
+                      handleChange("experiences", index, "year", value)
+                    }
+                  />
+                  <TextArea
+                    label="Description"
+                    value={experience.description || ""}
+                    onChange={(value) =>
+                      handleChange("experiences", index, "description", value)
+                    }
+                  />
+                </div>
+              ))}
+              <AddItemBtn
+                label="Add Experience"
+                onClick={() => handleAddItem("experiences")}
+              />
+              {/* Add Expreience Section end */}
+            </div>
+            {/* Add Expreience Section */}
+
+            {/* Add Projects Section */}
+            <div>
+              {formData.projects.map((project, index) => (
+                <div key={index}>
+                  <InputField
+                    label="Title"
+                    type="text"
+                    value={project.title || ""}
+                    onChange={(value) =>
+                      handleChange("projects", index, "title", value)
+                    }
+                  />
+                  <InputField
+                    label="Start Date"
+                    type="date"
+                    value={project.startDate || ""}
+                    onChange={(value) =>
+                      handleChange("projects", index, "startDate", value)
+                    }
+                  />
+                  <InputField
+                    label="End Date"
+                    type="date"
+                    value={project.endDate || ""}
+                    onChange={(value) =>
+                      handleChange("projects", index, "endDate", value)
+                    }
+                  />
+                  <InputField
+                    label="URL"
+                    type="text"
+                    value={project.url || ""}
+                    onChange={(value) =>
+                      handleChange("projects", index, "url", value)
+                    }
+                  />
+                  <TextArea
+                    label="Description"
+                    value={project.description || ""}
+                    onChange={(value) =>
+                      handleChange("projects", index, "description", value)
+                    }
+                  />
+                </div>
+              ))}
+              <AddItemBtn
+                label="Add Project"
+                onClick={() => handleAddItem("projects")}
+              />
+            </div>
+            {/* Add Projects Section end*/}
+          </div>
+          <button
+            type="submit"
+            className="bg-slate-700 rounded-lg text-white uppercase hover:opacity-95 p-3 disabled:opacity-80 transition-all duration-500"
+          >
+            Submit resume
+          </button>
+        </form>
+      </div>
+    </>
+  );
+};
+
+export default Resume;

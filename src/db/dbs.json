@@ -1,28 +1,246 @@
 {
   "api": [
     {
-      "id": 2,
-      "name": "Purple"
+      "id": 1,
+      "profile": {
+        "name": "John Doe",
+        "currentDesignation": "Software Engineer",
+        "location": "City, Country",
+        "email": "john.doe@example.com",
+        "phone": "123-456-7890",
+        "website": "www.johndoe.com"
+      },
+      "aboutMe": "I am a passionate software engineer with...",
+      "academics": [
+        {
+          "id": 1,
+          "title": "Bachelor's in Computer Science",
+          "year": 2020,
+          "description": "Graduated with honors..."
+        }
+      ],
+      "professionalExperience": [
+        {
+          "id": 1,
+          "designation": "Senior Software Engineer",
+          "organization": "ABC Corp",
+          "tenure": "2018 - Present",
+          "location": "City, Country",
+          "description": "Led a team of developers in..."
+        }
+      ],
+      "projects": [
+        {
+          "id": 1,
+          "title": "Project A",
+          "tenure": "2019 - 2020",
+          "url": "https://projectA.com",
+          "description": "Implemented feature X, Y, and Z..."
+        }
+      ],
+      "skills": [
+        {
+          "id": 1,
+          "name": "Web Development",
+          "rating": 4
+        },
+        {
+          "id": 2,
+          "name": "Creative Writing",
+          "rating": 3
+        }
+      ]
     },
     {
-      "id": 3,
-      "name": "Red"
+      "profile": {
+        "name": "abhishek",
+        "currentDesignation": "full stack",
+        "location": "mumbai",
+        "email": "abhi@gmail.com",
+        "phone": "74111739000",
+        "website": ""
+      },
+      "aboutMe": "i am a full stack developer",
+      "academics": [],
+      "experiences": [],
+      "projects": [],
+      "skills": [],
+      "id": 2
     },
     {
-      "id": 4,
-      "name": "Green"
+      "profile": {
+        "name": "",
+        "currentDesignation": "",
+        "location": "",
+        "email": "",
+        "phone": "",
+        "website": ""
+      },
+      "aboutMe": "",
+      "academics": [
+        {
+          "id": 1,
+          "title": "h",
+          "year": "1999",
+          "description": "ntg"
+        }
+      ],
+      "experiences": [],
+      "projects": [],
+      "skills": [],
+      "id": 3
     },
     {
-      "id": 5,
-      "name": "Cyan"
+      "profile": {
+        "name": "kiran",
+        "currentDesignation": "backend",
+        "location": "mumbai",
+        "email": "kiran@gmail.com",
+        "phone": "7411739000",
+        "website": ""
+      },
+      "aboutMe": "test",
+      "academics": [
+        {
+          "title": "BCA",
+          "year": "2022",
+          "description": "test"
+        }
+      ],
+      "experiences": [
+        {
+          "title": "Full stack",
+          "year": "2023",
+          "description": "dnhdks"
+        }
+      ],
+      "projects": [],
+      "skills": [],
+      "id": 4
     },
     {
-      "id": 6,
-      "name": "Yellow"
+      "profile": {
+        "name": "Kiran",
+        "currentDesignation": "frontend",
+        "location": "belagavi",
+        "email": "kiran@gmail.com",
+        "phone": "7411739077",
+        "website": ""
+      },
+      "aboutMe": "testing",
+      "academics": [
+        {
+          "title": "BBa",
+          "year": "6",
+          "description": "test"
+        },
+        {
+          "title": "bCom",
+          "year": "4",
+          "description": "test2"
+        },
+        {}
+      ],
+      "experiences": [
+        {
+          "title": "test experience",
+          "year": "3",
+          "description": "testdesc"
+        },
+        {}
+      ],
+      "projects": [],
+      "skills": [],
+      "id": 5
     },
     {
-      "id": 7,
-      "name": "blue"
+      "profile": {
+        "name": "test02",
+        "currentDesignation": "java",
+        "location": "bengaluru",
+        "email": "test@gmail.com",
+        "phone": "7411739077",
+        "website": ""
+      },
+      "aboutMe": "test",
+      "academics": [
+        {
+          "title": "PUC",
+          "year": "2016",
+          "description": ""
+        },
+        {
+          "title": "BcA",
+          "year": "2016"
+        },
+        {
+          "title": "MCA",
+          "year": "2020"
+        }
+      ],
+      "experiences": [
+        {
+          "title": "Fresher",
+          "year": "",
+          "description": ""
+        }
+      ],
+      "projects": [],
+      "skills": [],
+      "id": 6
+    },
+    {
+      "profile": {
+        "name": "test03",
+        "currentDesignation": "fresher",
+        "location": "bijapur",
+        "email": "test@gmail.com",
+        "phone": "123456789",
+        "website": ""
+      },
+      "aboutMe": "test03",
+      "academics": [
+        {
+          "title": "BCA",
+          "year": "2901",
+          "description": ""
+        },
+        {
+          "title": "Aca2",
+          "year": "120",
+          "description": ""
+        },
+        {
+          "title": "Aca3",
+          "year": "12344",
+          "description": ""
+        }
+      ],
+      "experiences": [
+        {
+          "title": "fresher",
+          "year": "",
+          "description": ""
+        }
+      ],
+      "projects": [
+        {
+          "title": "Todo list",
+          "startDate": "2023-12-16",
+          "endDate": "2023-12-16",
+          "url": "ntg",
+          "description": ""
+        },
+        {
+          "title": "pro2",
+          "startDate": "2023-12-17",
+          "endDate": "2023-12-18",
+          "url": "ntg",
+          "description": ""
+        }
+      ],
+      "skills": [],
+      "id": 7
     }
   ]
 }
