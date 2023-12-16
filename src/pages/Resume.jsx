@@ -20,6 +20,7 @@ const Resume = () => {
     url: "",
     description: "",
   };
+  const initialSkill = { name: "", rating: 0 };
   const [formData, setFormData] = useState({
     profile: {
       name: "",
@@ -33,7 +34,7 @@ const Resume = () => {
     academics: [initialState],
     experiences: [initialState],
     projects: [initialProjects],
-    skills: [],
+    skills: [initialSkill],
   });
 
   console.log(formData);
@@ -88,6 +89,9 @@ const Resume = () => {
       case "projects":
         newItem = initialProjects;
         break;
+      case "skills":
+        newItem = initialSkill;
+        break;
       default:
         newItem = {};
     }
@@ -119,6 +123,7 @@ const Resume = () => {
           project.url ||
           project.description
       ),
+      skills: formData.skills.filter((skill) => skill.name || skill.rating > 0),
     };
     try {
       const res = await fetch("/api", {
@@ -354,6 +359,36 @@ const Resume = () => {
               />
             </div>
             {/* Add Projects Section end*/}
+            {/* Add skils section */}
+            <div>
+              {formData.skills.map((skill, index) => (
+                <div key={index}>
+                  <InputField
+                    label="Skill Name"
+                    type="text"
+                    value={skill.name || ""}
+                    onChange={(value) =>
+                      handleChange("skills", index, "name", value)
+                    }
+                  />
+                  <InputField
+                    label="Rating"
+                    type="number"
+                    min="0"
+                    max="5"
+                    value={skill.rating || ""}
+                    onChange={(value) =>
+                      handleChange("skills", index, "rating", value)
+                    }
+                  />
+                </div>
+              ))}
+              <AddItemBtn
+                label="Add Skill"
+                onClick={() => handleAddItem("skills")}
+              />
+            </div>
+            {/* Add skils section end */}
           </div>
           <button
             type="submit"
