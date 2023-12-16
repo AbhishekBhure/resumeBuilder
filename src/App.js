@@ -1,12 +1,5 @@
-import "./App.css";
-import DemoComponent from "./DemoComponent";
-
 function App() {
-  return (
-    <div className="App">
-      <DemoComponent />
-    </div>
-  );
+  return <div className="App">hi</div>;
 }
 
 export default App;
