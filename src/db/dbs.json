@@ -20,16 +20,14 @@
           "title": "bCom",
           "year": "4",
           "description": "test2"
-        },
-        {}
+        }
       ],
       "experiences": [
         {
           "title": "test experience",
           "year": "3",
           "description": "testdesc"
-        },
-        {}
+        }
       ],
       "projects": [],
       "skills": [],
@@ -323,7 +321,7 @@
       "skills": [
         {
           "name": "web dev",
-          "rating": "5"
+          "rating": "4"
         }
       ],
       "id": 11

@@ -130,6 +130,7 @@ const Resume = () => {
       ),
       skills: formData.skills.filter((skill) => skill.name || skill.rating > 0),
     };
+
     try {
       const res = await fetch("/api", {
         method: "POST",
@@ -189,6 +190,7 @@ const Resume = () => {
               <InputField
                 label="Name"
                 type="text"
+                required
                 value={formData.profile.name}
                 onChange={(value) =>
                   handleChange("profile", null, "name", value)
@@ -222,6 +224,7 @@ const Resume = () => {
               <InputField
                 label="Phone No."
                 type="tel"
+                required
                 value={formData.profile.phone}
                 onChange={(value) =>
                   handleChange("profile", null, "phone", value)
@@ -231,6 +234,7 @@ const Resume = () => {
               {/* About Me Section */}
               <TextArea
                 label="About Me"
+                required
                 value={formData.aboutMe}
                 onChange={(value) =>
                   handleChange("aboutMe", null, "aboutMe", value)
@@ -240,13 +244,14 @@ const Resume = () => {
             </div>
             <div className="flex flex-col md:flex-row  justify-center gap-8">
               {/* Academics Section */}
-              <div className="">
+              <div className="  md:border-r pr-4">
                 <h1 className="text-4xl">Academics</h1>
                 {formData.academics.map((academic, index) => (
                   <div key={index} className="flex flex-col gap-4 my-3">
                     <InputField
                       label="Title"
                       type="text"
+                      required
                       value={academic.title || ""}
                       onChange={(value) =>
                         handleChange("academics", index, "title", value)
@@ -255,6 +260,7 @@ const Resume = () => {
                     <InputField
                       label="Start Date"
                       type="date"
+                      required
                       value={academic.startDate || ""}
                       onChange={(value) =>
                         handleChange("academics", index, "startDate", value)
@@ -263,6 +269,7 @@ const Resume = () => {
                     <InputField
                       label="End Date"
                       type="date"
+                      required
                       value={academic.endDate || ""}
                       onChange={(value) =>
                         handleChange("academics", index, "endDate", value)
@@ -292,6 +299,7 @@ const Resume = () => {
                     <InputField
                       label="Title"
                       type="text"
+                      required
                       value={experience.title || ""}
                       onChange={(value) =>
                         handleChange("experiences", index, "title", value)
@@ -300,6 +308,7 @@ const Resume = () => {
                     <InputField
                       label="Start Date"
                       type="date"
+                      required
                       value={experience.startDate || ""}
                       onChange={(value) =>
                         handleChange("experiences", index, "startDate", value)
@@ -308,6 +317,7 @@ const Resume = () => {
                     <InputField
                       label="End Date"
                       type="date"
+                      required
                       value={experience.endDate || ""}
                       onChange={(value) =>
                         handleChange("experiences", index, "endDate", value)
@@ -333,7 +343,7 @@ const Resume = () => {
 
             <div className="flex flex-col md:flex-row py-6 md:py-0 justify-center gap-8">
               {/* Add Projects Section */}
-              <div>
+              <div className=" md:border-r px-4">
                 <h1 className="text-4xl">Projects</h1>
                 {formData.projects.map((project, index) => (
                   <div key={index} className="flex flex-col gap-4 my-3">

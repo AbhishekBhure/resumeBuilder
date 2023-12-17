@@ -5,6 +5,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal";
 import Loader from "../components/Loader";
 import { FaTrashAlt, MdModeEditOutline } from "../icons";
+import StarRating from "../components/StarRating";
 
 const SingleResume = () => {
   const params = useParams();
@@ -159,7 +160,9 @@ const SingleResume = () => {
                   <ul>
                     {resume.skills &&
                       resume.skills.map((skill, index) => (
-                        <li key={index}>{skill.name}</li>
+                        <li key={index} className="flex gap-2 items-center">
+                          {skill.name} <StarRating rating={skill.rating} />
+                        </li>
                       ))}
                   </ul>
                 </div>
