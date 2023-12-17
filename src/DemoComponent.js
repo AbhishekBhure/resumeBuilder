@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Loader from "./components/Loader";
 import DeleteConfirmationModal from "./components/DeleteConfirmationModal";
 import { useSnackbar } from "notistack";
+import StarRating from "./components/StarRating";
 
 export default function DemoComponent() {
   const dispatch = useDispatch();
@@ -110,6 +111,17 @@ export default function DemoComponent() {
                           </span>
                         ))}
                     </p>
+                    <div>
+                      {item.skills &&
+                        item.skills.map((skill) => (
+                          <div className="flex gap-2 items-center text-xs">
+                            <span> {skill.name} </span>
+                            <span>
+                              <StarRating rating={item.rating} />
+                            </span>
+                          </div>
+                        ))}
+                    </div>
                   </div>
                 ) : (
                   <span>No profile name available</span>

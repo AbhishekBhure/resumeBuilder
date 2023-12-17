@@ -271,7 +271,7 @@
           "title": "XYZ Project",
           "startDate": "2023-12-22",
           "endDate": "2023-12-30",
-          "url": "not there",
+          "url": "https://abhishekbhure.netlify.app",
           "description": "it enables user to do nothing"
         },
         {
@@ -347,29 +347,6 @@
         }
       ],
       "id": 12
-    },
-    {
-      "profile": {
-        "name": "1",
-        "currentDesignation": "",
-        "location": "",
-        "email": "1@gmail.com",
-        "phone": "7411739000",
-        "website": "https://abhishekbhure.netlify.app"
-      },
-      "aboutMe": "ntg",
-      "academics": [
-        {
-          "title": "1",
-          "startDate": "2023-12-15",
-          "endDate": "2023-12-30",
-          "description": ""
-        }
-      ],
-      "experiences": [],
-      "projects": [],
-      "skills": [],
-      "id": 13
     }
   ]
 }

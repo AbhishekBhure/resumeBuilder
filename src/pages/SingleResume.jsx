@@ -103,7 +103,8 @@ const SingleResume = () => {
                     <div key={index} className="">
                       <div className="flex justify-between items-center">
                         <div>
-                          <span>{index + 1}. </span> {acad.title}
+                          <span>{index + 1}. </span>
+                          <span className="font-semibold">{acad.title}</span>
                           {acad.description && (
                             <p className="text-sm pl-4"> {acad.description} </p>
                           )}
@@ -129,7 +130,8 @@ const SingleResume = () => {
                       <div key={index} className="">
                         <div className="flex justify-between items-center">
                           <div>
-                            <span>{index + 1}. </span> {exp.title}
+                            <span>{index + 1}. </span>{" "}
+                            <span className="font-semibold">{exp.title}</span>
                             {exp.description && (
                               <p className="text-sm pl-4">{exp.description}</p>
                             )}
@@ -152,8 +154,15 @@ const SingleResume = () => {
                       <div key={index} className="">
                         <div className="flex justify-between">
                           <div>
-                            <span>{index + 1}. </span> {pro.title}
-                            <p className="text-sm">{pro.url} </p>
+                            <span>{index + 1}. </span>{" "}
+                            <span className="font-semibold">{pro.title}</span>
+                            {pro.url && (
+                              <p className="text-sm">
+                                <Link to={pro.url} target="_blank">
+                                  {pro.url}
+                                </Link>
+                              </p>
+                            )}
                             {pro.description && (
                               <p className="text-sm pl-4">{pro.description}</p>
                             )}
