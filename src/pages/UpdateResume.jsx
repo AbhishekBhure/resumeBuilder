@@ -222,6 +222,14 @@ const UpdateResume = () => {
                       handleChange("profile", null, "phone", value)
                     }
                   />
+                  <InputField
+                    label="Website"
+                    type="text"
+                    value={formData.profile.website}
+                    onChange={(value) =>
+                      handleChange("profile", null, "website", value)
+                    }
+                  />
                   {/* Profile section end */}
                   {/* About Me Section */}
                   <TextArea

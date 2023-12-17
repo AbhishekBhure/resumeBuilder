@@ -72,11 +72,20 @@ const SingleResume = () => {
             <div className="flex flex-col max-w-4xl py-8  mx-auto justify-center items-center">
               <div className="border w-full p-3 md:px-10 md:py-8 bg-slate-500">
                 <h1 className="text-4xl">{resume.profile.name} </h1>
-                <div className="border-b p-3">
-                  <p className="text-sm">{resume.profile.phone} </p>
-                  <p className="text-sm">{resume.profile.email} </p>
-                  <p className="text-sm">{resume.profile.location} </p>
-                  {resume.profile.website && <p>{resume.profile.website}</p>}
+                <div className="border-b p-3 flex gap-2">
+                  <p className="text-sm">{resume.profile.phone} | </p>
+                  <p className="text-sm">{resume.profile.email} | </p>
+                  {resume.profile.location && (
+                    <p className="text-sm">{resume.profile.location} | </p>
+                  )}
+
+                  {resume.profile.website && (
+                    <p>
+                      <Link to={resume.profile.website} target="_blank">
+                        {resume.profile.website}
+                      </Link>
+                    </p>
+                  )}
                 </div>
               </div>
               <div className="bg-gray-100 p-3 md:px-10 md:py-8 text-black w-full">
@@ -122,15 +131,12 @@ const SingleResume = () => {
                           <div>
                             <span>{index + 1}. </span> {exp.title}
                             {exp.description && (
-                              <p className="text-sm pl-4">
-                                {" "}
-                                {exp.description}{" "}
-                              </p>
+                              <p className="text-sm pl-4">{exp.description}</p>
                             )}
                           </div>
                           <div className="flex gap-4">
                             <p className="text-xs md:text-sm">
-                              {exp.startDate} - {exp.endDate}{" "}
+                              {exp.startDate} - {exp.endDate}
                             </p>
                           </div>
                         </div>
@@ -149,15 +155,12 @@ const SingleResume = () => {
                             <span>{index + 1}. </span> {pro.title}
                             <p className="text-sm">{pro.url} </p>
                             {pro.description && (
-                              <p className="text-sm pl-4">
-                                {" "}
-                                {pro.description}{" "}
-                              </p>
+                              <p className="text-sm pl-4">{pro.description}</p>
                             )}
                           </div>
                           <div className="flex gap-4">
                             <p className="text-xs md:text-sm">
-                              {pro.startDate} - {pro.endDate}{" "}
+                              {pro.startDate} - {pro.endDate}
                             </p>
                           </div>
                         </div>
@@ -185,7 +188,7 @@ const SingleResume = () => {
       <div className="flex gap-4">
         <Link to={`/update/${resume.id}`}>
           <button className="bg-tertiary p-3 rounded-lg flex gap-2 items-center">
-            Update <MdModeEditOutline className="" />{" "}
+            Update <MdModeEditOutline className="" />
           </button>
         </Link>
         <button
