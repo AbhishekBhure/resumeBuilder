@@ -22,7 +22,7 @@
     "start:dev": "react-scripts start",
     "start:backend": "json-server --watch ./src/db/dbs.json --port 3030",
     "start": "npm-run-all -p start:backend start:dev",
-    "build": "react-scripts build",
+    "build": "npm install &&  build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
