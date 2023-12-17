@@ -180,11 +180,11 @@ const Resume = () => {
     <>
       <div className="p-6 w-full mx-auto">
         <BackButton />
-        <h1 className="text-center text-7xl">Add Resume</h1>
+        <h1 className="text-center text-5xl md:text-7xl">Add Resume</h1>
         <form onSubmit={handleSubmit} className=" p-6">
           <div className="flex  flex-col  gap-9">
             {/* Profile Section */}
-            <div className="flex flex-col gap-4 items-center">
+            <div className="flex flex-col gap-4 mx-auto">
               <h1 className="text-4xl">Profile</h1>
               <InputField
                 label="Name"
@@ -195,7 +195,7 @@ const Resume = () => {
                 }
               />
               <InputField
-                label="Curren Designation"
+                label="Current Designation"
                 type="text"
                 value={formData.profile.currentDesignation}
                 onChange={(value) =>
@@ -238,7 +238,7 @@ const Resume = () => {
               />
               {/* About Me Section end */}
             </div>
-            <div className="flex  justify-center gap-8">
+            <div className="flex flex-col md:flex-row  justify-center gap-8">
               {/* Academics Section */}
               <div className="">
                 <h1 className="text-4xl">Academics</h1>
@@ -331,7 +331,7 @@ const Resume = () => {
               {/* Add Expreience Section end */}
             </div>
 
-            <div className="flex  justify-center gap-8">
+            <div className="flex flex-col md:flex-row py-6 md:py-0 justify-center gap-8">
               {/* Add Projects Section */}
               <div>
                 <h1 className="text-4xl">Projects</h1>

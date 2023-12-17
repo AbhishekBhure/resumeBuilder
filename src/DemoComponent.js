@@ -57,7 +57,7 @@ export default function DemoComponent() {
   return (
     <div className="demo-component p-5 md:px-20 md:py-10">
       {/* <input type="text" onKeyUp={addName} className="demo-input" /> */}
-      <h1 className="text-5xl">Resumes :</h1>
+      <h1 className="text-4xl  md:text-5xl">Resumes :</h1>
       <ul className="demo-user-list flex px-6 py-9 gap-5 flex-wrap justify-center">
         {resumes && loading ? (
           <Loader />
