@@ -1,57 +1,6 @@
 {
   "api": [
     {
-      "id": 1,
-      "profile": {
-        "name": "John Doe",
-        "currentDesignation": "Software Engineer",
-        "location": "City, Country",
-        "email": "john.doe@example.com",
-        "phone": "123-456-7890",
-        "website": "www.johndoe.com"
-      },
-      "aboutMe": "I am a passionate software engineer with...",
-      "academics": [
-        {
-          "id": 1,
-          "title": "Bachelor's in Computer Science",
-          "year": 2020,
-          "description": "Graduated with honors..."
-        }
-      ],
-      "professionalExperience": [
-        {
-          "id": 1,
-          "designation": "Senior Software Engineer",
-          "organization": "ABC Corp",
-          "tenure": "2018 - Present",
-          "location": "City, Country",
-          "description": "Led a team of developers in..."
-        }
-      ],
-      "projects": [
-        {
-          "id": 1,
-          "title": "Project A",
-          "tenure": "2019 - 2020",
-          "url": "https://projectA.com",
-          "description": "Implemented feature X, Y, and Z..."
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "name": "Web Development",
-          "rating": 4
-        },
-        {
-          "id": 2,
-          "name": "Creative Writing",
-          "rating": 3
-        }
-      ]
-    },
-    {
       "profile": {
         "name": "Kiran",
         "currentDesignation": "frontend",

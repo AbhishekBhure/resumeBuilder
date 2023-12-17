@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal";
 import Loader from "../components/Loader";
+import { FaTrashAlt, MdModeEditOutline } from "../icons";
 
 const SingleResume = () => {
   const params = useParams();
@@ -102,6 +103,7 @@ const SingleResume = () => {
                   ))}
                 </div>
                 <br />
+
                 <div>
                   <h1 className="text-2xl">Experience</h1>
                   <div className="border my-2"></div>
@@ -168,13 +170,15 @@ const SingleResume = () => {
       </div>
       <div className="flex gap-4">
         <Link to={`/update/${resume.id}`}>
-          <button className="bg-tertiary p-3 rounded-lg">Update</button>
+          <button className="bg-tertiary p-3 rounded-lg flex gap-2 items-center">
+            Update <MdModeEditOutline className="" />{" "}
+          </button>
         </Link>
         <button
-          className="bg-tertiary p-3 rounded-lg"
+          className="bg-tertiary p-3 rounded-lg flex gap-2 items-center"
           onClick={() => setShowDeleteConfirmation(true)}
         >
-          Delete
+          Delete <FaTrashAlt className="text-sm" />
         </button>
       </div>
       <>

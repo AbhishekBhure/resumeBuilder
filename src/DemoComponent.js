@@ -1,17 +1,24 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { FaTrashAlt, MdModeEditOutline } from "./icons";
 import {
   fetchResumeFailure,
   fetchResumeStart,
   fetchResumeSuccess,
 } from "./redux/resume/resumeSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "./components/Loader";
+import DeleteConfirmationModal from "./components/DeleteConfirmationModal";
 
 export default function DemoComponent() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [dataLoading, setDataLoading] = useState(false);
   const { resumes, loading, error } = useSelector((state) => state.resumes);
   const [data, setData] = useState([]);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  console.log(data);
+
   // Loading initial data from the server
   useEffect(function () {
     dispatch(fetchResumeStart());
@@ -21,42 +28,39 @@ export default function DemoComponent() {
         dispatch(fetchResumeSuccess(data));
         setData(data);
       })
-      .catch((error) => dispatch(fetchResumeFailure(error)));
+      .catch((error) => {
+        dispatch(fetchResumeFailure(error));
+      });
   }, []);
 
-  // Adding new data to the server using a POST request
-  function addName(evt) {
-    evt.preventDefault();
-    if (evt.key === "Enter" && evt.target.value !== "") {
-      const name = evt.target.value;
-      fetch("/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: data.length + 1, name }),
-      })
-        .then((res) => res.json())
-        .then((newData) => setData([...data, newData]))
-        .finally(() => {
-          evt.target.value = "";
-        });
-    }
-  }
-
-  // Deleting data from the server using a DELETE request
-  function deleteName(evt) {
-    const id = evt.target.getAttribute("data-id");
-    fetch(`/api/${id}`, {
+  const handleRemove = (resumeId) => {
+    setDataLoading(true);
+    fetch(`/api/${resumeId}`, {
       method: "DELETE",
-    }).then(() => {
-      const newData = data.filter((item) => item.id !== parseInt(id));
-      setData(newData);
-    });
-  }
+    })
+      .then(() => {
+        // Fetch the updated data
+        return fetch("/api");
+      })
+      .then((res) => res.json())
+      .then((updatedData) => {
+        dispatch(fetchResumeSuccess(updatedData));
+        setData(updatedData);
+        navigate("/");
+        setDataLoading(false);
+        setShowDeleteConfirmation(false);
+      })
+      .catch((error) => {
+        console.error(
+          `Error deleting resume with ID ${resumeId}:`,
+          error.message
+        );
+        setDataLoading(false);
+      });
+  };
+
   return (
     <div className="demo-component p-5 md:px-20 md:py-10">
-      {/* <input type="text" onKeyUp={addName} className="demo-input" /> */}
       <h1 className="text-4xl  md:text-5xl">Resumes :</h1>
       <ul className="demo-user-list flex px-6 py-9 gap-5 flex-wrap justify-center">
         {resumes && loading ? (
@@ -64,22 +68,22 @@ export default function DemoComponent() {
         ) : (
           resumes.length > 0 &&
           resumes.map((item) => (
-            <Link to={`/resume/${item.id}`} key={item.id}>
-              <li
-                className="demo-list-item  p-3 shadow-card bg-tertiary rounded-[20px] w-[250px]"
-                // style={{ color: item.name.toLowerCase() }}
-              >
+            <li
+              key={item.id}
+              className="demo-list-item  p-3 shadow-card bg-tertiary rounded-[20px] w-[300px]  "
+            >
+              <Link to={`/resume/${item.id}`}>
                 {item.profile ? (
-                  <div>
+                  <div className="w-full flex flex-col gap-2  p-3 ">
                     <span className="text-2xl">{item.profile.name}</span>
                     <p className="text-sm">{item.profile.currentDesignation}</p>
-                    <p>
+                    <div>
                       {item.academics.map((acad, index) => (
                         <span key={index} className="text-xs flex flex-col">
                           {acad.title}
                         </span>
                       ))}
-                    </p>
+                    </div>
                     <p>
                       {item.experiences &&
                         item.experiences.map((exp, index) => (
@@ -100,14 +104,28 @@ export default function DemoComponent() {
                 ) : (
                   <span>No profile name available</span>
                 )}
-                <button onClick={deleteName} data-id={item.id}>
-                  X
+              </Link>
+              <div className="flex gap-3 items-center mt-3">
+                <Link to={`/update/${item.id}`}>
+                  <button>
+                    <MdModeEditOutline />
+                  </button>
+                </Link>
+                <button onClick={() => setShowDeleteConfirmation(true)}>
+                  <FaTrashAlt />
                 </button>
-              </li>
-            </Link>
+              </div>
+            </li>
           ))
         )}
       </ul>
+      <>
+        <DeleteConfirmationModal
+          isOpen={showDeleteConfirmation}
+          onCancel={() => setShowDeleteConfirmation(false)}
+          onConfirm={() => handleRemove(data[0].id)}
+        />
+      </>
     </div>
   );
 }

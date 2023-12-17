@@ -165,7 +165,7 @@ const UpdateResume = () => {
   return (
     <div className="p-3 md:p-16">
       <BackButton />
-      {formData && loading ? (
+      {loading ? (
         <Loader />
       ) : (
         Object.keys(formData).length > 0 && (
