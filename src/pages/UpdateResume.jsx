@@ -5,10 +5,13 @@ import InputField from "../components/InputField";
 import TextArea from "../components/TextArea";
 import AddItemBtn from "../components/AddItemBtn";
 import Loader from "../components/Loader";
+import { useSnackbar } from "notistack";
 
 const UpdateResume = () => {
   const params = useParams();
   const navigate = useNavigate();
+
+  const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
   const initialState = {
     title: "",
@@ -139,7 +142,6 @@ const UpdateResume = () => {
     };
     try {
       setLoading(true);
-
       const res = await fetch(`/api/${params.id}`, {
         method: "PUT",
         headers: {
@@ -152,13 +154,16 @@ const UpdateResume = () => {
         setFormData(newResume);
         setLoading(false);
         navigate(`/resume/${params.id}`);
+        enqueueSnackbar("Resume Updated Successfull", { variant: "success" });
       } else {
         setLoading(false);
         console.log("Error while updating");
+        enqueueSnackbar("Resume Updated Failed", { variant: "error" });
       }
     } catch (error) {
       setLoading(false);
       console.log(error.message);
+      enqueueSnackbar(error.message, { variant: "error" });
     }
   };
 

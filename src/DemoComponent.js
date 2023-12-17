@@ -9,6 +9,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "./components/Loader";
 import DeleteConfirmationModal from "./components/DeleteConfirmationModal";
+import { useSnackbar } from "notistack";
 
 export default function DemoComponent() {
   const dispatch = useDispatch();
@@ -16,7 +17,9 @@ export default function DemoComponent() {
   const [dataLoading, setDataLoading] = useState(false);
   const { resumes, loading, error } = useSelector((state) => state.resumes);
   const [data, setData] = useState([]);
+  const [deleteId, setDeleteId] = useState(null);
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
   console.log(data);
 
   // Loading initial data from the server
@@ -32,6 +35,11 @@ export default function DemoComponent() {
         dispatch(fetchResumeFailure(error));
       });
   }, []);
+
+  const handleConfirmDelete = (resumeId) => {
+    setShowDeleteConfirmation(true);
+    setDeleteId(resumeId);
+  };
 
   const handleRemove = (resumeId) => {
     setDataLoading(true);
@@ -49,6 +57,7 @@ export default function DemoComponent() {
         navigate("/");
         setDataLoading(false);
         setShowDeleteConfirmation(false);
+        enqueueSnackbar("Resume Deleted Successfully", { variant: "success" });
       })
       .catch((error) => {
         console.error(
@@ -56,6 +65,7 @@ export default function DemoComponent() {
           error.message
         );
         setDataLoading(false);
+        enqueueSnackbar(error.message, { variant: "error" });
       });
   };
 
@@ -111,7 +121,7 @@ export default function DemoComponent() {
                     <MdModeEditOutline />
                   </button>
                 </Link>
-                <button onClick={() => setShowDeleteConfirmation(true)}>
+                <button onClick={() => handleConfirmDelete(item.id)}>
                   <FaTrashAlt />
                 </button>
               </div>
@@ -123,7 +133,7 @@ export default function DemoComponent() {
         <DeleteConfirmationModal
           isOpen={showDeleteConfirmation}
           onCancel={() => setShowDeleteConfirmation(false)}
-          onConfirm={() => handleRemove(data[0].id)}
+          onConfirm={() => handleRemove(deleteId)}
         />
       </>
     </div>

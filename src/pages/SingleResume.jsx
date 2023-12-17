@@ -6,11 +6,14 @@ import DeleteConfirmationModal from "../components/DeleteConfirmationModal";
 import Loader from "../components/Loader";
 import { FaTrashAlt, MdModeEditOutline } from "../icons";
 import StarRating from "../components/StarRating";
+import { useSnackbar } from "notistack";
 
 const SingleResume = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+
+  const { enqueueSnackbar } = useSnackbar();
 
   const [resume, setResume] = useState({});
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
@@ -47,12 +50,14 @@ const SingleResume = () => {
         navigate("/");
         setResume(updatedResumes);
         setShowDeleteConfirmation(false);
+        enqueueSnackbar("Resume Deleted Successfully", { variant: "success" });
       })
       .catch((error) => {
         console.error(
           `Error deleting resume with ID ${resumeId}:`,
           error.message
         );
+        enqueueSnackbar(error.message, { variant: "error" });
       });
   };
 

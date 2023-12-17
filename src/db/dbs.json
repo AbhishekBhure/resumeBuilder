@@ -2,7 +2,7 @@
   "api": [
     {
       "profile": {
-        "name": "Kiran",
+        "name": "Kiran update",
         "currentDesignation": "frontend",
         "location": "belagavi",
         "email": "kiran@gmail.com",
@@ -32,42 +32,6 @@
       "projects": [],
       "skills": [],
       "id": 5
-    },
-    {
-      "profile": {
-        "name": "test02",
-        "currentDesignation": "java",
-        "location": "bengaluru",
-        "email": "test@gmail.com",
-        "phone": "7411739077",
-        "website": ""
-      },
-      "aboutMe": "test",
-      "academics": [
-        {
-          "title": "PUC",
-          "year": "2016",
-          "description": ""
-        },
-        {
-          "title": "BcA",
-          "year": "2016"
-        },
-        {
-          "title": "MCA",
-          "year": "2020"
-        }
-      ],
-      "experiences": [
-        {
-          "title": "Fresher",
-          "year": "",
-          "description": ""
-        }
-      ],
-      "projects": [],
-      "skills": [],
-      "id": 6
     },
     {
       "profile": {
@@ -325,6 +289,64 @@
         }
       ],
       "id": 11
+    },
+    {
+      "profile": {
+        "name": "testing",
+        "currentDesignation": "backend",
+        "location": "bengalore",
+        "email": "test@gmail.com",
+        "phone": "7411739000",
+        "website": ""
+      },
+      "aboutMe": "i am backend developer",
+      "academics": [
+        {
+          "title": "BCA",
+          "startDate": "2023-12-15",
+          "endDate": "2023-12-23",
+          "description": "I was Mr.fresher for the year 2019"
+        }
+      ],
+      "experiences": [
+        {
+          "title": "MERN Developer Inter",
+          "startDate": "2023-08-16",
+          "endDate": "2023-12-14",
+          "description": "BUilt restfull api's and fullstack projects"
+        }
+      ],
+      "projects": [
+        {
+          "title": "XYZ Project",
+          "startDate": "2023-09-06",
+          "endDate": "2023-12-16",
+          "url": "",
+          "description": "This project helps user to rewrite their name"
+        },
+        {
+          "title": "Resume builder",
+          "startDate": "2023-12-15",
+          "endDate": "2023-12-18",
+          "url": "www.demourl.com",
+          "description": "this app helps users to build their own resume"
+        }
+      ],
+      "skills": [
+        {
+          "name": "web developement",
+          "rating": "5"
+        },
+        {
+          "name": "fullstack developer",
+          "rating": "4"
+        },
+        {
+          "name": "backend developer",
+          "rating": "2"
+        }
+      ],
+      "id": 12
     }
   ]
 }
