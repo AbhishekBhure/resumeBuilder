@@ -53,22 +53,6 @@
     },
     {
       "profile": {
-        "name": "abhishek",
-        "currentDesignation": "full stack",
-        "location": "mumbai",
-        "email": "abhi@gmail.com",
-        "phone": "74111739000",
-        "website": ""
-      },
-      "aboutMe": "i am a full stack developer",
-      "academics": [],
-      "experiences": [],
-      "projects": [],
-      "skills": [],
-      "id": 2
-    },
-    {
-      "profile": {
         "name": "",
         "currentDesignation": "",
         "location": "",
@@ -89,34 +73,6 @@
       "projects": [],
       "skills": [],
       "id": 3
-    },
-    {
-      "profile": {
-        "name": "kiran",
-        "currentDesignation": "backend",
-        "location": "mumbai",
-        "email": "kiran@gmail.com",
-        "phone": "7411739000",
-        "website": ""
-      },
-      "aboutMe": "test",
-      "academics": [
-        {
-          "title": "BCA",
-          "year": "2022",
-          "description": "test"
-        }
-      ],
-      "experiences": [
-        {
-          "title": "Full stack",
-          "year": "2023",
-          "description": "dnhdks"
-        }
-      ],
-      "projects": [],
-      "skills": [],
-      "id": 4
     },
     {
       "profile": {
@@ -283,6 +239,136 @@
         {}
       ],
       "id": 8
+    },
+    {
+      "profile": {
+        "name": "test05",
+        "currentDesignation": "fresher",
+        "location": "mumbai",
+        "email": "test05@gmail.com",
+        "phone": "7411739000",
+        "website": ""
+      },
+      "aboutMe": "ntg much",
+      "academics": [
+        {
+          "title": "PUC",
+          "startDate": "2023-12-16",
+          "endDate": "2024-01-16",
+          "description": ""
+        }
+      ],
+      "experiences": [
+        {
+          "title": "fresher",
+          "startDate": "",
+          "endDate": "",
+          "description": ""
+        }
+      ],
+      "projects": [
+        {
+          "title": "XYZ",
+          "startDate": "2023-12-22",
+          "endDate": "2023-12-30",
+          "url": "not there",
+          "description": ""
+        },
+        {
+          "title": "XZA Project",
+          "startDate": "2023-12-21",
+          "endDate": "2023-12-23",
+          "url": "not there",
+          "description": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "web dev",
+          "rating": "5"
+        },
+        {
+          "name": "video editing",
+          "rating": "4"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "profile": {
+        "name": "Kiran Agarwal",
+        "currentDesignation": "backend developer",
+        "location": "bengalore",
+        "email": "final@gmail.com",
+        "phone": "7411739077",
+        "website": ""
+      },
+      "aboutMe": "i am passinate backend developer  i love to build api's",
+      "academics": [
+        {
+          "title": "BCA",
+          "startDate": "2019-06-15",
+          "endDate": "2022-09-15",
+          "description": "i was mr.fresher"
+        },
+        {
+          "title": "PUC",
+          "startDate": "2017-08-17",
+          "endDate": "2019-03-15",
+          "description": "i was Cr of the class"
+        },
+        {
+          "title": "SSLC",
+          "startDate": "2016-06-16",
+          "endDate": "2017-09-14",
+          "description": "I ranked 2nd to the school"
+        }
+      ],
+      "experiences": [
+        {
+          "title": "Backend developer",
+          "startDate": "2023-12-15",
+          "endDate": "2023-12-15",
+          "description": "I build restful api"
+        },
+        {
+          "title": "Web Developer",
+          "startDate": "2021-02-11",
+          "endDate": "2023-07-15",
+          "description": "I used to build websites"
+        }
+      ],
+      "projects": [
+        {
+          "title": "XYZ Project",
+          "startDate": "2023-12-06",
+          "endDate": "2023-12-16",
+          "url": "www.demourl.com",
+          "description": "XYZ Project that enables users to write anything"
+        },
+        {
+          "title": "XSE Project",
+          "startDate": "2023-12-07",
+          "endDate": "2023-12-09",
+          "url": "www.demourl.com",
+          "description": "this project enables useres to build apis"
+        }
+      ],
+      "skills": [
+        {
+          "name": "api",
+          "rating": "5"
+        },
+        {
+          "name": "web dev",
+          "rating": "2"
+        },
+        {
+          "name": "bacakend",
+          "rating": "4"
+        }
+      ],
+      "id": 10
     }
   ]
 }

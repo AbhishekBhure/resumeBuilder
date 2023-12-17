@@ -6,7 +6,7 @@ const AddItemBtn = ({ onClick, label }) => {
       <button
         type="button"
         onClick={onClick}
-        className="md:uppercase border md:p-3 p-3 rounded-lg bg-white hover:border-black transition-all duration-500"
+        className="bg-slate-700 rounded-lg text-white uppercase hover:opacity-95 p-2 disabled:opacity-80 transition-all duration-500"
       >
         {label}
       </button>

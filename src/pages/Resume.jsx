@@ -178,13 +178,14 @@ const Resume = () => {
   };
   return (
     <>
-      <BackButton />
       <div className="p-6 w-full mx-auto">
-        <h1 className="text-center">Add Resume</h1>
+        <BackButton />
+        <h1 className="text-center text-7xl">Add Resume</h1>
         <form onSubmit={handleSubmit} className=" p-6">
-          <div className="flex md:flex-row flex-col  gap-9">
-            <div className="flex flex-col gap-4">
-              {/* Profile Section */}
+          <div className="flex  flex-col  gap-9">
+            {/* Profile Section */}
+            <div className="flex flex-col gap-4 items-center">
+              <h1 className="text-4xl">Profile</h1>
               <InputField
                 label="Name"
                 type="text"
@@ -236,12 +237,13 @@ const Resume = () => {
                 }
               />
               {/* About Me Section end */}
-
+            </div>
+            <div className="flex  justify-center gap-8">
               {/* Academics Section */}
-              <div>
-                <h1>Academics</h1>
+              <div className="">
+                <h1 className="text-4xl">Academics</h1>
                 {formData.academics.map((academic, index) => (
-                  <div key={index}>
+                  <div key={index} className="flex flex-col gap-4 my-3">
                     <InputField
                       label="Title"
                       type="text"
@@ -281,137 +283,139 @@ const Resume = () => {
                 />
               </div>
               {/* Academics Section end */}
-            </div>
 
-            {/* Add Expreience Section */}
-            <div>
-              <h1>Experience</h1>
-              {formData.experiences.map((experience, index) => (
-                <div key={index}>
-                  <InputField
-                    label="Title"
-                    type="text"
-                    value={experience.title || ""}
-                    onChange={(value) =>
-                      handleChange("experiences", index, "title", value)
-                    }
-                  />
-                  <InputField
-                    label="Start Date"
-                    type="date"
-                    value={experience.startDate || ""}
-                    onChange={(value) =>
-                      handleChange("experiences", index, "startDate", value)
-                    }
-                  />
-                  <InputField
-                    label="End Date"
-                    type="date"
-                    value={experience.endDate || ""}
-                    onChange={(value) =>
-                      handleChange("experiences", index, "endDate", value)
-                    }
-                  />
-                  <TextArea
-                    label="Description"
-                    value={experience.description || ""}
-                    onChange={(value) =>
-                      handleChange("experiences", index, "description", value)
-                    }
-                  />
-                </div>
-              ))}
-              <AddItemBtn
-                label="Add Experience"
-                onClick={() => handleAddItem("experiences")}
-              />
+              {/* Add Expreience Section */}
+              <div className="">
+                <h1 className="text-4xl">Experience</h1>
+                {formData.experiences.map((experience, index) => (
+                  <div key={index} className="flex flex-col gap-4 my-3">
+                    <InputField
+                      label="Title"
+                      type="text"
+                      value={experience.title || ""}
+                      onChange={(value) =>
+                        handleChange("experiences", index, "title", value)
+                      }
+                    />
+                    <InputField
+                      label="Start Date"
+                      type="date"
+                      value={experience.startDate || ""}
+                      onChange={(value) =>
+                        handleChange("experiences", index, "startDate", value)
+                      }
+                    />
+                    <InputField
+                      label="End Date"
+                      type="date"
+                      value={experience.endDate || ""}
+                      onChange={(value) =>
+                        handleChange("experiences", index, "endDate", value)
+                      }
+                    />
+                    <TextArea
+                      label="Description"
+                      value={experience.description || ""}
+                      onChange={(value) =>
+                        handleChange("experiences", index, "description", value)
+                      }
+                    />
+                  </div>
+                ))}
+                <AddItemBtn
+                  label="Add Experience"
+                  onClick={() => handleAddItem("experiences")}
+                />
+                {/* Add Expreience Section end */}
+              </div>
               {/* Add Expreience Section end */}
             </div>
-            {/* Add Expreience Section */}
 
-            {/* Add Projects Section */}
-            <div>
-              <h1>Projects</h1>
-              {formData.projects.map((project, index) => (
-                <div key={index}>
-                  <InputField
-                    label="Title"
-                    type="text"
-                    value={project.title || ""}
-                    onChange={(value) =>
-                      handleChange("projects", index, "title", value)
-                    }
-                  />
-                  <InputField
-                    label="Start Date"
-                    type="date"
-                    value={project.startDate || ""}
-                    onChange={(value) =>
-                      handleChange("projects", index, "startDate", value)
-                    }
-                  />
-                  <InputField
-                    label="End Date"
-                    type="date"
-                    value={project.endDate || ""}
-                    onChange={(value) =>
-                      handleChange("projects", index, "endDate", value)
-                    }
-                  />
-                  <InputField
-                    label="URL"
-                    type="text"
-                    value={project.url || ""}
-                    onChange={(value) =>
-                      handleChange("projects", index, "url", value)
-                    }
-                  />
-                  <TextArea
-                    label="Description"
-                    value={project.description || ""}
-                    onChange={(value) =>
-                      handleChange("projects", index, "description", value)
-                    }
-                  />
-                </div>
-              ))}
-              <AddItemBtn
-                label="Add Project"
-                onClick={() => handleAddItem("projects")}
-              />
+            <div className="flex  justify-center gap-8">
+              {/* Add Projects Section */}
+              <div>
+                <h1 className="text-4xl">Projects</h1>
+                {formData.projects.map((project, index) => (
+                  <div key={index} className="flex flex-col gap-4 my-3">
+                    <InputField
+                      label="Title"
+                      type="text"
+                      value={project.title || ""}
+                      onChange={(value) =>
+                        handleChange("projects", index, "title", value)
+                      }
+                    />
+                    <InputField
+                      label="Start Date"
+                      type="date"
+                      value={project.startDate || ""}
+                      onChange={(value) =>
+                        handleChange("projects", index, "startDate", value)
+                      }
+                    />
+                    <InputField
+                      label="End Date"
+                      type="date"
+                      value={project.endDate || ""}
+                      onChange={(value) =>
+                        handleChange("projects", index, "endDate", value)
+                      }
+                    />
+                    <InputField
+                      label="URL"
+                      type="text"
+                      value={project.url || ""}
+                      onChange={(value) =>
+                        handleChange("projects", index, "url", value)
+                      }
+                    />
+                    <TextArea
+                      label="Description"
+                      value={project.description || ""}
+                      onChange={(value) =>
+                        handleChange("projects", index, "description", value)
+                      }
+                    />
+                  </div>
+                ))}
+                <AddItemBtn
+                  label="Add Project"
+                  onClick={() => handleAddItem("projects")}
+                />
+              </div>
+              {/* Add Projects Section end*/}
+              {/* Add skils section */}
+              <div>
+                <h1 className="text-4xl">Skills</h1>
+                {formData.skills.map((skill, index) => (
+                  <div key={index} className="flex flex-col gap-4 my-3">
+                    <InputField
+                      label="Skill Name"
+                      type="text"
+                      value={skill.name || ""}
+                      onChange={(value) =>
+                        handleChange("skills", index, "name", value)
+                      }
+                    />
+                    <InputField
+                      label="Rating"
+                      type="number"
+                      min="0"
+                      max="5"
+                      value={skill.rating || ""}
+                      onChange={(value) =>
+                        handleChange("skills", index, "rating", value)
+                      }
+                    />
+                  </div>
+                ))}
+                <AddItemBtn
+                  label="Add Skill"
+                  onClick={() => handleAddItem("skills")}
+                />
+              </div>
+              {/* Add skils section end */}
             </div>
-            {/* Add Projects Section end*/}
-            {/* Add skils section */}
-            <div>
-              <h1>Skills</h1>
-              {formData.skills.map((skill, index) => (
-                <div key={index}>
-                  <InputField
-                    label="Skill Name"
-                    type="text"
-                    value={skill.name || ""}
-                    onChange={(value) =>
-                      handleChange("skills", index, "name", value)
-                    }
-                  />
-                  <InputField
-                    label="Rating"
-                    type="number"
-                    min="0"
-                    max="5"
-                    value={skill.rating || ""}
-                    onChange={(value) =>
-                      handleChange("skills", index, "rating", value)
-                    }
-                  />
-                </div>
-              ))}
-              <AddItemBtn
-                label="Add Skill"
-                onClick={() => handleAddItem("skills")}
-              />
-            </div>
-            {/* Add skils section end */}
           </div>
           <button
             type="submit"

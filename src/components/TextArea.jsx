@@ -2,10 +2,15 @@ import React from "react";
 
 const TextArea = ({ label, value, onChange }) => {
   return (
-    <div>
-      {" "}
+    <div className="flex gap-2">
       <label>{label}: </label>
-      <textarea value={value} onChange={(e) => onChange(e.target.value)} />
+      <textarea
+        className="bg-transparent border"
+        rows="1"
+        cols=""
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
     </div>
   );
 };
