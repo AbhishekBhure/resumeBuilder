@@ -59,6 +59,7 @@ export default function DemoComponent() {
       <h1 className="text-5xl">Resumes :</h1>
       <ul className="demo-user-list flex px-6 py-9 gap-5 flex-wrap justify-center">
         {resumes &&
+          resumes.length > 0 &&
           resumes.map((item) => (
             <Link to={`/resume/${item.id}`}>
               <li

@@ -53,29 +53,6 @@
     },
     {
       "profile": {
-        "name": "",
-        "currentDesignation": "",
-        "location": "",
-        "email": "",
-        "phone": "",
-        "website": ""
-      },
-      "aboutMe": "",
-      "academics": [
-        {
-          "id": 1,
-          "title": "h",
-          "year": "1999",
-          "description": "ntg"
-        }
-      ],
-      "experiences": [],
-      "projects": [],
-      "skills": [],
-      "id": 3
-    },
-    {
-      "profile": {
         "name": "Kiran",
         "currentDesignation": "frontend",
         "location": "belagavi",
@@ -197,48 +174,6 @@
       ],
       "skills": [],
       "id": 7
-    },
-    {
-      "profile": {
-        "name": "test04",
-        "currentDesignation": "time pass",
-        "location": "anywhere",
-        "email": "test04@gmail.com",
-        "phone": "7411739000",
-        "website": ""
-      },
-      "aboutMe": "ntg",
-      "academics": [
-        {
-          "title": "Bca",
-          "year": "",
-          "description": ""
-        }
-      ],
-      "experiences": [
-        {
-          "title": "fresher",
-          "year": "",
-          "description": ""
-        }
-      ],
-      "projects": [
-        {
-          "title": "XYZ Project",
-          "startDate": "",
-          "endDate": "",
-          "url": "",
-          "description": ""
-        }
-      ],
-      "skills": [
-        {
-          "name": "web",
-          "rating": "4"
-        },
-        {}
-      ],
-      "id": 8
     },
     {
       "profile": {

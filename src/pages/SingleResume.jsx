@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from "react";
 import BackButton from "../components/BackButton";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import DeleteConfirmationModal from "../components/DeleteConfirmationModal";
 
 const SingleResume = () => {
   const params = useParams();
+  const navigate = useNavigate();
+
   const [resume, setResume] = useState({});
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
   const { resumes } = useSelector((state) => state.resumes);
   console.log("resume", resume);
-
-  //   useEffect(() => {
-  //     const resumeId = params.id;
-  //     const selectedResume = resumes.find(
-  //       (item) => item.id === parseInt(resumeId)
-  //     );
-
-  //     if (selectedResume) {
-  //       setResume(selectedResume);
-  //     } else {
-  //       // Handle the case where the resume with the given ID is not found
-  //       console.error(`Resume with ID ${resumeId} not found.`);
-  //     }
-  //   }, []);
 
   useEffect(() => {
     const resumeId = params.id;
@@ -40,6 +30,24 @@ const SingleResume = () => {
 
     fetchResume();
   }, []);
+
+  const handleRemove = (resumeId) => {
+    fetch(`/api/${resumeId}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        const updatedResumes = resumes.filter((item) => item.id !== resumeId);
+        navigate("/");
+        setResume(updatedResumes);
+        setShowDeleteConfirmation(false);
+      })
+      .catch((error) => {
+        console.error(
+          `Error deleting resume with ID ${resumeId}:`,
+          error.message
+        );
+      });
+  };
 
   return (
     <div className="p-3 md:p-16">
@@ -149,6 +157,24 @@ const SingleResume = () => {
           </div>
         )}
       </div>
+      <div className="flex gap-4">
+        <Link to={`/update/${resume.id}`}>
+          <button className="bg-tertiary p-3 rounded-lg">Update</button>
+        </Link>
+        <button
+          className="bg-tertiary p-3 rounded-lg"
+          onClick={() => setShowDeleteConfirmation(true)}
+        >
+          Delete
+        </button>
+      </div>
+      <>
+        <DeleteConfirmationModal
+          isOpen={showDeleteConfirmation}
+          onCancel={() => setShowDeleteConfirmation(false)}
+          onConfirm={() => handleRemove(resume.id)}
+        />
+      </>
     </div>
   );
 };
