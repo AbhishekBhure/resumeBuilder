@@ -122,7 +122,10 @@ const SingleResume = () => {
                           <div>
                             <span>{index + 1}. </span> {exp.title}
                             {exp.description && (
-                              <p className="text-sm"> {exp.description} </p>
+                              <p className="text-sm pl-4">
+                                {" "}
+                                {exp.description}{" "}
+                              </p>
                             )}
                           </div>
                           <div className="flex gap-4">
@@ -146,7 +149,10 @@ const SingleResume = () => {
                             <span>{index + 1}. </span> {pro.title}
                             <p className="text-sm">{pro.url} </p>
                             {pro.description && (
-                              <p className="text-sm"> {pro.description} </p>
+                              <p className="text-sm pl-4">
+                                {" "}
+                                {pro.description}{" "}
+                              </p>
                             )}
                           </div>
                           <div className="flex gap-4">
