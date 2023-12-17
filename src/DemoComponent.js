@@ -6,6 +6,7 @@ import {
   fetchResumeSuccess,
 } from "./redux/resume/resumeSlice";
 import { Link } from "react-router-dom";
+import Loader from "./components/Loader";
 
 export default function DemoComponent() {
   const dispatch = useDispatch();
@@ -58,40 +59,39 @@ export default function DemoComponent() {
       {/* <input type="text" onKeyUp={addName} className="demo-input" /> */}
       <h1 className="text-5xl">Resumes :</h1>
       <ul className="demo-user-list flex px-6 py-9 gap-5 flex-wrap justify-center">
-        {resumes &&
+        {resumes && loading ? (
+          <Loader />
+        ) : (
           resumes.length > 0 &&
           resumes.map((item) => (
-            <Link to={`/resume/${item.id}`}>
+            <Link to={`/resume/${item.id}`} key={item.id}>
               <li
-                key={item.id}
                 className="demo-list-item  p-3 shadow-card bg-tertiary rounded-[20px] w-[250px]"
                 // style={{ color: item.name.toLowerCase() }}
               >
                 {item.profile ? (
                   <div>
                     <span className="text-2xl">{item.profile.name}</span>
-                    <p className="text-sm">
-                      {item.profile.currentDesignation}{" "}
-                    </p>
+                    <p className="text-sm">{item.profile.currentDesignation}</p>
                     <p>
-                      {item.academics.map((acad) => (
-                        <span className="text-xs flex flex-col">
+                      {item.academics.map((acad, index) => (
+                        <span key={index} className="text-xs flex flex-col">
                           {acad.title}
                         </span>
                       ))}
                     </p>
                     <p>
                       {item.experiences &&
-                        item.experiences.map((exp) => (
-                          <span className="text-xs flex flex-col">
+                        item.experiences.map((exp, index) => (
+                          <span key={index} className="text-xs flex flex-col">
                             {exp.title}
                           </span>
                         ))}
                     </p>
                     <p>
                       {item.projects &&
-                        item.projects.map((pro) => (
-                          <span className="text-xs flex flex-col">
+                        item.projects.map((pro, index) => (
+                          <span key={index} className="text-xs flex flex-col">
                             {pro.title}
                           </span>
                         ))}
@@ -105,7 +105,8 @@ export default function DemoComponent() {
                 </button>
               </li>
             </Link>
-          ))}
+          ))
+        )}
       </ul>
     </div>
   );

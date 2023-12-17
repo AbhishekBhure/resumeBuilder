@@ -177,9 +177,9 @@
     },
     {
       "profile": {
-        "name": "test05",
+        "name": "test05 update",
         "currentDesignation": "fresher",
-        "location": "mumbai",
+        "location": "dubai",
         "email": "test05@gmail.com",
         "phone": "7411739000",
         "website": ""
@@ -190,6 +190,12 @@
           "title": "PUC",
           "startDate": "2023-12-16",
           "endDate": "2024-01-16",
+          "description": ""
+        },
+        {
+          "title": "BCA",
+          "startDate": "2023-12-07",
+          "endDate": "2023-12-29",
           "description": ""
         }
       ],
@@ -304,6 +310,74 @@
         }
       ],
       "id": 10
+    },
+    {
+      "profile": {
+        "name": "Abhishek Bhure",
+        "currentDesignation": "Frontend Dev",
+        "location": "belgaum",
+        "email": "abhi@gmail.com",
+        "phone": "7411739000",
+        "website": ""
+      },
+      "aboutMe": "I am a passinate developer",
+      "academics": [
+        {
+          "title": "BCA",
+          "startDate": "2023-12-23",
+          "endDate": "2024-01-12",
+          "description": "I was Mr.fresher"
+        },
+        {
+          "title": "PUC ",
+          "startDate": "2023-12-06",
+          "endDate": "2023-12-29",
+          "description": "I was cr of the class"
+        },
+        {
+          "title": "SSLC",
+          "startDate": "2023-12-07",
+          "endDate": "2023-12-21",
+          "description": "I was second to the school"
+        }
+      ],
+      "experiences": [
+        {
+          "title": "MERN Stack developer",
+          "startDate": "2023-12-13",
+          "endDate": "2023-12-16",
+          "description": "I develope full-stcak application"
+        },
+        {
+          "title": "MERN Tutor",
+          "startDate": "2023-12-06",
+          "endDate": "2023-12-16",
+          "description": "I used to teach students"
+        }
+      ],
+      "projects": [
+        {
+          "title": "XYZ Project",
+          "startDate": "2023-12-22",
+          "endDate": "2023-12-30",
+          "url": "not there",
+          "description": "it enables user to do nothing"
+        },
+        {
+          "title": "XWE Project",
+          "startDate": "2023-12-26",
+          "endDate": "2023-12-21",
+          "url": "not there",
+          "description": "dsjdo"
+        }
+      ],
+      "skills": [
+        {
+          "name": "web dev",
+          "rating": "5"
+        }
+      ],
+      "id": 11
     }
   ]
 }

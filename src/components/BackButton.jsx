@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const BackButton = ({ destination = "/" }) => {
   return (
-    <button className="bg-tertiary p-3 rounded-lg">
-      <Link to={destination}>back</Link>
-    </button>
+    <Link to={destination}>
+      <button className="bg-tertiary p-3 rounded-lg">back</button>
+    </Link>
   );
 };
 
