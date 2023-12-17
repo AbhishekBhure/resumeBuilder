@@ -96,7 +96,7 @@ const SingleResume = () => {
                         <div>
                           <span>{index + 1}. </span> {acad.title}
                           {acad.description && (
-                            <p className="text-sm"> {acad.description} </p>
+                            <p className="text-sm pl-4"> {acad.description} </p>
                           )}
                         </div>
                         <div className="flex gap-4">

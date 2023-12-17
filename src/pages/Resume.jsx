@@ -9,9 +9,13 @@ import {
 } from "../redux/resume/resumeSlice";
 import AddItemBtn from "../components/AddItemBtn";
 import TextArea from "../components/TextArea";
+import { useSnackbar } from "notistack";
+import { useNavigate } from "react-router-dom";
 
 const Resume = () => {
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
   const initialState = {
     title: "",
     startDate: "",
@@ -43,17 +47,6 @@ const Resume = () => {
   });
 
   console.log(formData);
-
-  //   const handleChange = (section, index, field, value) => {
-  //     setFormData((prevData) => ({
-  //       ...prevData,
-  //       [section]: Array.isArray(prevData[section])
-  //         ? prevData[section].map((item, i) =>
-  //             i === index ? { ...item, [field]: value } : item
-  //           )
-  //         : { ...prevData[section], [field]: value },
-  //     }));
-  //   };
 
   const handleChange = (section, index, field, value) => {
     setFormData((prevData) => {
@@ -141,7 +134,6 @@ const Resume = () => {
       });
       if (res.ok) {
         const newResume = await res.json();
-
         dispatch(addResumeSuccess(newResume));
         setFormData({
           profile: {
@@ -170,6 +162,8 @@ const Resume = () => {
           projects: [],
           skills: [],
         });
+        navigate("/");
+        enqueueSnackbar("Resume Added Successfully", { variant: "success" });
       } else {
         dispatch(addResumeFailure("Failed to add new resume"));
       }
@@ -235,6 +229,7 @@ const Resume = () => {
               <TextArea
                 label="About Me"
                 required
+                maxLength="150"
                 value={formData.aboutMe}
                 onChange={(value) =>
                   handleChange("aboutMe", null, "aboutMe", value)
@@ -277,6 +272,7 @@ const Resume = () => {
                     />
                     <TextArea
                       label="Description"
+                      maxLength="150"
                       value={academic.description || ""}
                       onChange={(value) =>
                         handleChange("academics", index, "description", value)
@@ -299,7 +295,6 @@ const Resume = () => {
                     <InputField
                       label="Title"
                       type="text"
-                      required
                       value={experience.title || ""}
                       onChange={(value) =>
                         handleChange("experiences", index, "title", value)
@@ -308,7 +303,6 @@ const Resume = () => {
                     <InputField
                       label="Start Date"
                       type="date"
-                      required
                       value={experience.startDate || ""}
                       onChange={(value) =>
                         handleChange("experiences", index, "startDate", value)
@@ -317,7 +311,6 @@ const Resume = () => {
                     <InputField
                       label="End Date"
                       type="date"
-                      required
                       value={experience.endDate || ""}
                       onChange={(value) =>
                         handleChange("experiences", index, "endDate", value)
@@ -325,6 +318,7 @@ const Resume = () => {
                     />
                     <TextArea
                       label="Description"
+                      maxLength="150"
                       value={experience.description || ""}
                       onChange={(value) =>
                         handleChange("experiences", index, "description", value)
@@ -381,6 +375,7 @@ const Resume = () => {
                     />
                     <TextArea
                       label="Description"
+                      maxLength="150"
                       value={project.description || ""}
                       onChange={(value) =>
                         handleChange("projects", index, "description", value)
