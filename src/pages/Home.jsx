@@ -12,7 +12,7 @@ const Home = () => {
         <p className="text-5xl md:text-8xl font-semibold">We got you</p>
         <Link to="/create/resume">
           <button className="bg-tertiary p-3 rounded-lg shadow-card mt-5">
-            Create a resume
+            Create a Resume...
           </button>
         </Link>
       </div>
