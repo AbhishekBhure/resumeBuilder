@@ -168,6 +168,57 @@
         }
       ],
       "id": 10
+    },
+    {
+      "profile": {
+        "name": "Kiran Agarwal",
+        "currentDesignation": "Frontend developer",
+        "location": "bengalore",
+        "email": "kiran@gmail.com",
+        "phone": "9876543211",
+        "website": "https://kiran.netlify.app"
+      },
+      "aboutMe": "I am a passinate frontend developer",
+      "academics": [
+        {
+          "title": "Bba",
+          "startDate": "2023-06-13",
+          "endDate": "2023-12-14",
+          "description": "I was Mrs.fresher"
+        }
+      ],
+      "experiences": [
+        {
+          "title": "HR -- intern",
+          "startDate": "2023-12-13",
+          "endDate": "2023-12-22",
+          "description": ""
+        }
+      ],
+      "projects": [
+        {
+          "title": "XYZ ",
+          "startDate": "2023-12-01",
+          "endDate": "2023-12-15",
+          "url": "",
+          "description": ""
+        }
+      ],
+      "skills": [
+        {
+          "name": "HR",
+          "rating": "4"
+        },
+        {
+          "name": "fronten",
+          "rating": "3"
+        },
+        {
+          "name": "fullstack",
+          "rating": "5"
+        }
+      ],
+      "id": 11
     }
   ]
 }
