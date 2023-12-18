@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FaTrashAlt, MdModeEditOutline } from "./icons";
+import { FaTrashAlt, MdModeEditOutline } from "../icons";
 import {
   fetchResumeFailure,
   fetchResumeStart,
@@ -8,9 +8,9 @@ import {
 } from "./redux/resume/resumeSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "./components/Loader";
-import DeleteConfirmationModal from "./components/DeleteConfirmationModal";
+import DeleteConfirmationModal from "../components/DeleteConfirmationModal";
 import { useSnackbar } from "notistack";
-import StarRating from "./components/StarRating";
+import StarRating from "../components/StarRating";
 
 export default function DemoComponent() {
   const dispatch = useDispatch();
@@ -113,8 +113,11 @@ export default function DemoComponent() {
                     </p>
                     <div>
                       {item.skills &&
-                        item.skills.map((skill) => (
-                          <div className="flex gap-2 items-center text-xs">
+                        item.skills.map((skill, index) => (
+                          <div
+                            key={index}
+                            className="flex gap-2 items-center text-xs"
+                          >
                             <span> {skill.name} </span>
                             <span>
                               <StarRating rating={item.rating} />
