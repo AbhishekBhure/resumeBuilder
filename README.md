@@ -22,6 +22,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
    ```bash
    git clone https://github.com/AbhishekBhure/resumeBuilder.git
 
+2. After Cloning
+   
+   **if you are not in the root directory** 
+   ```bash
+   cd resume-craft-start 
+
+3. Install frontend dependencies
+   
+   ```bash
+   npm install 
+   **or**
+   ```
+   npm i
+
 ## Available Scripts
 
 In the project directory, you can run:
