@@ -8,6 +8,11 @@ A web application for creating, viewing, updating, and deleting awesome resumes.
 
 # Getting Started with Create React App
 
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) installed on your machine.
+- [JSON-server](https://www.npmjs.com/package/json-server) installed globally for the backend.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
