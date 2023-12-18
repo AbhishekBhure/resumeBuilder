@@ -15,6 +15,13 @@ A web application for creating, viewing, updating, and deleting awesome resumes.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+1. Clone the repository.
+
+   ```bash
+   git clone https://github.com/AbhishekBhure/resumeBuilder.git
+
 ## Available Scripts
 
 In the project directory, you can run:
