@@ -39,6 +39,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
    ```bash
    npm start
 
+5. Open your browser and visit http://localhost:3000 to access the application.
+
 ## Available Scripts
 
 In the project directory, you can run:
