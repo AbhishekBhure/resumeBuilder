@@ -72,7 +72,7 @@ const SingleResume = () => {
             <div className="flex flex-col max-w-4xl py-8  mx-auto justify-center items-center">
               <div className="border w-full p-3 md:px-10 md:py-8 bg-slate-500">
                 <h1 className="text-4xl">{resume.profile.name} </h1>
-                <div className="border-b p-3 flex gap-2">
+                <div className="border-b p-3 flex flex-wrap gap-2">
                   <p className="text-sm">{resume.profile.phone} | </p>
                   <p className="text-sm">{resume.profile.email} | </p>
                   {resume.profile.location && (
