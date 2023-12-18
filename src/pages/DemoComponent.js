@@ -5,9 +5,9 @@ import {
   fetchResumeFailure,
   fetchResumeStart,
   fetchResumeSuccess,
-} from "./redux/resume/resumeSlice";
+} from "../redux/resume/resumeSlice";
 import { Link, useNavigate } from "react-router-dom";
-import Loader from "./components/Loader";
+import Loader from "../components/Loader";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModal";
 import { useSnackbar } from "notistack";
 import StarRating from "../components/StarRating";

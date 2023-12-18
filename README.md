@@ -1,3 +1,11 @@
+# ResumeCraftr 
+A web application for creating, viewing, updating, and deleting awesome resumes. Built with React for the frontend and JSON-server as the backend.
+
+# Features
+- Create and manage resumes with personal details, education, experience, projects, and   skills.
+- View, update, and delete individual resumes.
+- Skill ratings displayed with star icons.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import DemoComponent from "../DemoComponent";
+import DemoComponent from "./DemoComponent";
 
 const Home = () => {
   return (
