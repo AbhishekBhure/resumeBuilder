@@ -33,7 +33,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
    ```bash
    npm install
 
-**Back will be installed with the same command**
+**Backend will be installed with the same command**
 
 ## Available Scripts
 
