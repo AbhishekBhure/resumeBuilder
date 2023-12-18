@@ -197,7 +197,7 @@
       ],
       "projects": [
         {
-          "title": "XYZ ",
+          "title": "XYZ - Project",
           "startDate": "2023-12-01",
           "endDate": "2023-12-15",
           "url": "",
@@ -216,6 +216,10 @@
         {
           "name": "fullstack",
           "rating": "5"
+        },
+        {
+          "name": "backend",
+          "rating": "1"
         }
       ],
       "id": 11
