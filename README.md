@@ -31,9 +31,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 3. Install frontend dependencies
    
    ```bash
-   npm install 
+   npm install
+
    **or**
-   ```
+   
+   ```bash
    npm i
 
 ## Available Scripts
